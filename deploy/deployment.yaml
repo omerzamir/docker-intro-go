@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-dpl
+  namespace: go-example
 spec:
   replicas: 1
   selector:
@@ -15,6 +16,7 @@ spec:
       containers:
         - name: backend-container
           image: docker-intro-go:latest
+          imagePullPolicy: IfNotPresent
           resources:
             limits:
               memory: "128Mi"
